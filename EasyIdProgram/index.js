@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
+//const tokenHandler = require('/TokenHandler');
 
 // Create application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,15 +23,17 @@ app.get('/login', (req, res) => {
 
 // getting the token from the login response and decoding it.
 app.post('/token', (req,res) => {
-    var token = req.body;
-    var tokenString = JSON.stringify(token);
-    const base64Url = tokenString.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    let buff = new Buffer.from(base64, 'base64');
-    const payloadinit = buff.toString('ascii');
-    const payload = JSON.parse(payloadinit);
-    console.log(payload);
-    res.sendStatus(200);
+    const token = req.body;
+    const tokenString = JSON.stringify(token);
+    const tokenParsed = JSON.parse(tokenString);
+
+    for (key in tokenParsed) {
+        var tokenToVerify = key;
+    };
+
+    var decoded = jwt.verify(tokenToVerify, 'example_key');
+    console.log(decoded)
+
 });
 
 // Setting port
