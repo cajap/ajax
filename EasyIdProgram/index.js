@@ -1,31 +1,40 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var jwt = require('jsonwebtoken')
+// setting required packages:
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
 // Create application/x-www-form-urlencoded parser
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-    res.sendFile( __dirname + "/index.html" );
-})
+// Home / index page
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 
-app.post('/token', function(req,res){
+// Login Page
+app.get('/login', (req, res) => {
+    res.sendFile( __dirname + "/login.html" );
+});
+
+// getting the token from the login response and decoding it.
+app.post('/token', (req,res) => {
     var token = req.body;
-    //console.log(require('util').inspect( req.query ));
-    var decode = jwt.decode(token, {complete: true});
-
-    console.log(decode.header);
-    console.log(decode.payload);
-
+    var tokenString = JSON.stringify(token);
+    const base64Url = tokenString.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let buff = new Buffer.from(base64, 'base64');
+    const payloadinit = buff.toString('ascii');
+    const payload = JSON.parse(payloadinit);
+    console.log(payload);
     res.sendStatus(200);
-})
+});
 
-var server = app.listen(8081, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log("Example app listening at http://%s:%s", host, port)
-})
+// Setting port
+const port = 8081;
+
+// Running the Server with port variable
+app.listen(port, () => {
+   console.log('server running on port: ' + port)
+});
