@@ -1,25 +1,26 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var util = require('util');
-
+var jwt = require('jsonwebtoken')
 
 // Create application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'));
-app.use( bodyParser.json());
+app.use(bodyParser.json());
 
-app.get('/index', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile( __dirname + "/index.html" );
-   
 })
 
-app.post('/test', function(req,res){
-    var token = req.param('token');
+app.post('/token', function(req,res){
+    var token = req.body;
     //console.log(require('util').inspect( req.query ));
-    
-    res.send(token);
-    
+    var decode = jwt.decode(token, {complete: true});
+
+    console.log(decode.header);
+    console.log(decode.payload);
+
+    res.sendStatus(200);
 })
 
 var server = app.listen(8081, function () {
