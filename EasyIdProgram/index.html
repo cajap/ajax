@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Welcome</h1>
+
+    <iframe style="height: 400;" src="http://80.210.70.4:3333/easyid-form.php" frameborder="0"></iframe>
+
+    <script>
+        function onSuccess(token) {
+            alert(token)
+        }
+
+        if (window.addEventListener) {
+            window.addEventListener("message", onMessage, false);
+        } else if (window.attachEvent) {
+            window.attachEvent("onmessage", onMessage, false);
+        }
+
+        function onMessage(event) {
+            // Check sender origin to be trusted
+            if (event.origin !== "http://80.210.70.4:3333") {
+                console.log('not allowed')
+                return;
+            }
+
+            var data = event.data;
+
+            if (typeof (window[data.func]) == "function") {
+                window[data.func].call(null, data.message);
+            }
+        }
+
+        // Function to be called from iframe
+        function parentFunc(token) {
+
+            $.ajax({
+                url: "http://localhost:8081/test",
+                type: "POST",
+                data: token,
+                success: function (result) {
+                    console.log("token  send to backend")
+                }
+            });
+        }  
+    </script>
+
+</body>
+
+</html>
