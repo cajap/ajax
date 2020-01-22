@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5e281ebee12aca840d55147d"},"name":"A","password":"1111","transferred_tax":"5000","expected_tax":"6000","user_id":{"$numberInt":"11111111"}}
+{"_id":{"$oid":"5e281f2317a917840d1eb2b8"},"name":"B","password":"2222","transferred_tax":"500","expected_tax":"7500","user_id":{"$numberInt":"22222222"}}
