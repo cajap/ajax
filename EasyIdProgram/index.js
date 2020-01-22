@@ -31,9 +31,24 @@ app.post('/token', (req,res) => {
         var tokenToVerify = key;
     };
 
+    jwt.verify(tokenToVerify, 'example_key', function(err) {
+        if (err) {
+            console.log(err);
+            res.status(500).send(err);
+        } else {
+            fs.readFile('./json/users.json', (err, data) => {
+                if (err) console.log(err)
+                let user_id = JSON.parse(data);
+                //console.log(tokenToVerify)
+                console.log(user_id);
+                res.status(200).send(user_id);
+            })
+        }
+    });
     var decoded = jwt.verify(tokenToVerify, 'example_key');
-    console.log(decoded)
-
+    console.log(decoded.email);
+    console.log(decoded.name);
+    console.log(decoded.iat);
 });
 
 // Setting port

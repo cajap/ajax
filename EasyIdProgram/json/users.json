@@ -1,4 +1,4 @@
 {
-  "a@a.com":{"balance": 1000},
-  "b@b.com":{"balance": 3200}
+  "a@a.com":{"user_id": 11111111, "username": "Alice", "email": "a@a.com"},
+  "b@b.com":{"user_id": 22222222, "username":  "Bob", "email":  "b@b.com"}
 }
