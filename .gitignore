@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Default ignored files
+/workspace.xml
+.idea/EXAM_PROJECTS_SI.iml
+.idea/EXAM_PROJECTS_SI.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
