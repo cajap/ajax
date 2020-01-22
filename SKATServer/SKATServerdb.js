@@ -1,8 +1,8 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://localhost:9999/";
 
 //TODO: solution to get data from the login box in EASY id program
-const dataFromProgram = '{"name":11111111, "password":1111}'
+const dataFromProgram = '{"name":"A"}'
 
 
 //find dataFromProgram name in database

@@ -1,0 +1,78 @@
+[
+    {
+            "_id" : ObjectId("5e203756a209778bb810e922"),
+            "id" : "2222222222",
+            "name" : "Bob",
+            "transferred_tax" : "5",
+            "exptected_tax" : "210"
+    },
+    {
+            "_id" : ObjectId("5e203f03ad2d2922c001eaf7"),
+            "id" : 3333333333,
+            "name" : "Caja",
+            "transferred_tax" : 10,
+            "expected_tax" : 20
+    },
+    {
+            "_id" : ObjectId("5e203756a209778bb810e921"),
+            "id" : "1111111111",
+            "transferred_tax" : "10",
+            "expected_tax" : "199",
+            "name" : "Alice"
+    },
+    {
+            "_id" : ObjectId("5e2059c5d5803a09dc10a838"),
+            "name" : "caja",
+            "transferred_tax" : "30",
+            "expected_tax" : "30"
+    },
+    {
+            "_id" : ObjectId("5e205a0fe01cac0c80175228"),
+            "name" : "Tommy",
+            "transferred_tax" : "10",
+            "expected_tax" : "10"
+    },
+    {
+            "_id" : ObjectId("5e205a424283e6063cc3741f"),
+            "name" : "Tom",
+            "transferred_tax" : "1",
+            "expected_tax" : "100"
+    },
+    {
+            "_id" : ObjectId("5e205a874168f83444db075a"),
+            "name" : "host",
+            "transferred_tax" : "20",
+            "expected_tax" : "0"
+    },
+    {
+            "_id" : ObjectId("5e205ab64168f83444db075b"),
+            "name" : "host",
+            "transferred_tax" : "20",
+            "expected_tax" : "0"
+    },
+    {
+            "_id" : ObjectId("5e205b744168f83444db075c"),
+            "name" : "host",
+            "transferred_tax" : "20",
+            "expected_tax" : "0"
+    },
+    {
+            "_id" : ObjectId("5e205c866dcf2c14e8d37d61"),
+            "name" : "1111",
+            "transferred_tax" : "10",
+            "expected_tax" : "10"
+    },
+    {
+            "_id" : ObjectId("5e205d4858bfd5170407ac2f"),
+            "name" : "11111111",
+            "transferred_tax" : "12",
+            "expected_tax" : "12"
+    }.
+    {
+            "_id" : ObjectId("5e257db7960bdf3b2a0bba74"),
+            "name" : 11111111,
+            "password" : 1111,
+            "transferred_tax" : 10,
+            "expected_tax" : 30
+    }
+]
